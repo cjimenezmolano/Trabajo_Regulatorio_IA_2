@@ -1,0 +1,6 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.15.0+cpu
+streamlit==1.59.2
+starlette==0.48.0
+numpy
+pillow

@@ -1,0 +1,39 @@
+{
+  "identidad": {
+    "modelo": "cnn_inception",
+    "img_size": 128,
+    "clases": [
+      "azzaro",
+      "candela_vetrano",
+      "colapinto",
+      "dario_barassi",
+      "dolores_fonzi",
+      "erica_rivas",
+      "eva_de_dominici",
+      "georgina_barbarossa",
+      "griselda_siciliani",
+      "guillermo_francella",
+      "javier_milei",
+      "julio_chavez",
+      "lali_esposito",
+      "momo",
+      "mora_bianchi",
+      "oscar_martinez",
+      "pablo_echarri",
+      "ricardo_darin",
+      "scaloni",
+      "tini_stoessel"
+    ]
+  },
+  "emocion": {
+    "modelo": "mobilenetv2",
+    "img_size": 224,
+    "clases": [
+      "alegria",
+      "enojo",
+      "neutral",
+      "sorpresa",
+      "tristeza"
+    ]
+  }
+}
