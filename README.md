@@ -6,7 +6,7 @@ Subís una foto y dice cuál de los 20 actores del dataset es y qué emoción mu
 - Emoción: MobileNetV2 con transfer learning (0,484 de F1 macro en test).
 - Dos orígenes: elegir una foto del dataset (una al azar, filtrable por split; muestra si acierta) o subir una foto propia.
 - La foto tiene que venir recortada a la cara; si no es cuadrada se toma el cuadrado central y se lleva a 224×224.
-- El selector del dataset solo aparece si existen la carpeta de imágenes y `splits/` (localmente); publicada, queda solo la subida.
+- Localmente usa el dataset completo; publicada usa las 411 fotos de test incluidas en `fotos_test/`.
 - El modelo solo conoce a esas 20 personas y siempre elige una: si la confianza es baja, lo avisa.
 
 ## Correr localmente

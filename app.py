@@ -11,8 +11,9 @@ from PIL import Image, ImageOps
 
 AQUI = Path(__file__).resolve().parent
 RAIZ = AQUI.parent
-FOTOS = RAIZ / "Imagenes_Finales-20261102T234933Z-1-001" / "Imagenes_Finales"
-SPLITS = RAIZ / "splits" / "splits_final.csv"
+LOCAL = (RAIZ / "Imagenes_Finales-20261102T234933Z-1-001" / "Imagenes_Finales", RAIZ / "splits" / "splits_final.csv")
+REPO = (AQUI / "fotos_test", AQUI / "fotos_test" / "etiquetas.csv")
+FOTOS, SPLITS = LOCAL if LOCAL[1].exists() else REPO
 LADO = 224
 
 
@@ -53,7 +54,8 @@ st.title("¿Qué famoso es?")
 
 real = None
 if filas and st.radio("Origen", ["Dataset", "Subir foto"], horizontal=True) == "Dataset":
-    split = st.radio("Split", ["test", "val", "train", "todos"], horizontal=True)
+    splits = sorted({r["split"] for r in filas}, key=["test", "val", "train"].index)
+    split = st.radio("Split", splits + ["todos"], horizontal=True) if len(splits) > 1 else "test"
     opciones = [r for r in filas if split in (r["split"], "todos")]
     if st.button("Foto aleatoria") or st.session_state.get("split") != split:
         st.session_state.update(split=split, fila=random.choice(opciones))
